@@ -90,6 +90,8 @@ test:
 	@docker-compose -f docker-compose.yml up --build
 
 run:
+	set -x ;\
+	mkdir -p data \
 	docker run \
 		-d \
 		--restart always \
@@ -106,6 +108,7 @@ run:
 
 build:
 	set -x ;\
+	mkdir -p data \
 	docker build \
 		--file=Dockerfile \
         --build-arg CONTAINER_VERSION=$(CONTAINER_VERSION) \
