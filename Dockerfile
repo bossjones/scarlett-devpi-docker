@@ -30,7 +30,8 @@ RUN set -xe \
 # create a virtual env in $VIRTUAL_ENV, ensure it respects pip version
 RUN pip install virtualenv \
     && virtualenv $VIRTUAL_ENV \
-    && $VIRTUAL_ENV/bin/pip install pip==$PYTHON_PIP_VERSION
+    && $VIRTUAL_ENV/bin/pip install --ignore-installed --pre "https://github.com/pradyunsg/pip/archive/hotfix/9.0.2.zip#egg=pip" \
+    && $VIRTUAL_ENV/bin/pip install --upgrade setuptools==36.0.1 wheel==0.29.0
 ENV PATH $VIRTUAL_ENV/bin:$PATH
 
 RUN pip install \
