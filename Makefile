@@ -112,9 +112,9 @@ build:
         --build-arg GIT_BRANCH=$(GIT_BRANCH) \
         --build-arg GIT_SHA=$(GIT_SHA) \
         --build-arg BUILD_DATE=$(BUILD_DATE) \
-		--build-arg ARG_DEVPI_CLIENT_VERSION=$(ARG_DEVPI_CLIENT_VERSION) \
-		--build-arg ARG_DEVPI_SERVER_VERSION=$(ARG_DEVPI_SERVER_VERSION) \
-		--build-arg ARG_DEVPI_WEB_VERSION=$(ARG_DEVPI_WEB_VERSION) \
+		--build-arg ARG_DEVPI_CLIENT_VERSION=$(DOCKER_DEVPI_CLIENT_VERSION) \
+		--build-arg ARG_DEVPI_SERVER_VERSION=$(DOCKER_DEVPI_SERVER_VERSION) \
+		--build-arg ARG_DEVPI_WEB_VERSION=$(DOCKER_DEVPI_WEB_VERSION) \
 	    --tag $(username)/$(container_name):$(GIT_SHA) . ; \
 	docker tag $(username)/$(container_name):$(GIT_SHA) $(username)/$(container_name):$(TAG) ; \
 	docker tag $(username)/$(container_name):$(GIT_SHA) $(username)/$(container_name):latest
