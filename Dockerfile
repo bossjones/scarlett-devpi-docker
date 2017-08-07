@@ -40,6 +40,7 @@ RUN pip install \
     "devpi-server==${DEVPI_SERVER_VERSION}"
 
 EXPOSE 3141
+RUN mkdir -p /data && chown -R devpi:devpi -R /data
 # VOLUME /data
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
