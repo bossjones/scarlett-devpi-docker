@@ -131,10 +131,3 @@ build:
 build_and_push: build
 	docker push $(username)/$(container_name):$(TAG)
 	docker push $(username)/$(container_name):latest
-
-# docker run -d --name devpi \
-#     --publish 3141:3141 \
-#     --volume /srv/docker/devpi:/data \
-#     --env=DEVPI_PASSWORD=changemetoyourlongsecret \
-#     --restart always \
-#     bossjones/scarlett-devpi-docker
