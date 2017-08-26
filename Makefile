@@ -80,15 +80,19 @@ __check_defined = \
 
 list_allowed_args := name
 
+.PHONY: help
 help:
 	@echo "help"
 
+.PHONY: list
 list:
 	@$(MAKE) -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$$)/ {split($$1,A,/ /);for(i in A)print A[i]}' | sort
 
+.PHONY: test
 test:
 	@docker-compose -f docker-compose.yml up --build
 
+.PHONY: run
 run:
 	set -x ;\
 	mkdir -p data \
@@ -106,6 +110,7 @@ run:
 		-p 3141:3141 \
         $(username)/$(container_name):latest
 
+.PHONY: build
 build:
 	set -x ;\
 	mkdir -p data \
@@ -122,6 +127,7 @@ build:
 	docker tag $(username)/$(container_name):$(GIT_SHA) $(username)/$(container_name):$(TAG) ; \
 	docker tag $(username)/$(container_name):$(GIT_SHA) $(username)/$(container_name):latest
 
+.PHONY: build_and_push
 build_and_push: build
 	docker push $(username)/$(container_name):$(TAG)
 	docker push $(username)/$(container_name):latest
