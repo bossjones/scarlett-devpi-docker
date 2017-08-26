@@ -95,7 +95,7 @@ test:
 .PHONY: run
 run:
 	set -x ;\
-	mkdir -p data \
+	mkdir -p data; \
 	docker run \
 		-d \
 		--restart always \
@@ -113,7 +113,7 @@ run:
 .PHONY: build
 build:
 	set -x ;\
-	mkdir -p data \
+	mkdir -p data; \
 	docker build \
 		--file=Dockerfile \
         --build-arg CONTAINER_VERSION=$(CONTAINER_VERSION) \
