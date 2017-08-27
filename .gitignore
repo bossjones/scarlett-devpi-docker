@@ -14,3 +14,5 @@ temp
 artifacts/gnome
 **/artifacts/*
 *.vscode/tags
+
+data
